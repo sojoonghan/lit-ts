@@ -1,12 +1,12 @@
 import { LitElement, html, css } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 
+@customElement('j-01')
 export class Test01 extends LitElement {
   render() {
     return html``;
   }
 }
-customElements.get('j-01') && customElements.define('j-01', Test01);
 
 declare global {
   interface HTMLElementTagNameMap {

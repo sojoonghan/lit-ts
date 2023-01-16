@@ -8,7 +8,7 @@ declare module '*.css' {
   export default content;
 }
 
-declare module NodeJS {
+declare namespace NodeJS {
   export interface ErrnoException extends Error {
     errno?: number;
     code?: string;
