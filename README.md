@@ -20,3 +20,4 @@ yarn set version berry
 yarn dlx @yarnpkg/sdks vscode
 yarn up
 yarn dedupe //yarn.lock 중복제거
+# lit-ts
