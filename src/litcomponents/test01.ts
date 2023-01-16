@@ -3,6 +3,8 @@ import { property, customElement } from 'lit/decorators.js';
 
 @customElement('j-01')
 export class Test01 extends LitElement {
+  @property() name = 'jihoon';
+  static styles = css``;
   render() {
     return html``;
   }
