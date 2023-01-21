@@ -1,15 +1,15 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 // const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: ['./src/index.ts'],
+  entry: ["./src/index.ts"],
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name].[hash].bundle.js',
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[hash].bundle.js",
     // chunkFilename: '[name].[chunkhash].js',
     clean: true,
   },
@@ -44,7 +44,7 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
           },
         ],
         exclude: /node_modules/,
@@ -55,22 +55,22 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           // 'style-loader',
           // 'to-string-loader',
-          'css-loader',
+          "css-loader",
         ],
       },
       {
         test: /\.html$/i,
         use: {
-          loader: 'html-loader',
+          loader: "html-loader",
           options: { minimize: false },
         },
       },
       {
         test: /\.(jpg|png|gif|svg)$/i,
-        type: 'asset',
+        type: "asset",
         use: [
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
               pngquant: {
                 quality: [0.9, 95],
@@ -79,20 +79,20 @@ module.exports = {
           },
         ],
         generator: {
-          filename: 'images/[name]-[hash][ext]',
+          filename: "images/[name]-[hash][ext]",
         },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './public/index.html'),
-      filename: 'index.html',
+      template: path.join(__dirname, "./public/index.html"),
+      filename: "index.html",
       // inject: false
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: "[name].css",
     }),
   ],
   stats: {
@@ -102,12 +102,12 @@ module.exports = {
     errorDetails: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx', '.json'],
+    extensions: [".ts", ".tsx", ".js", "jsx", ".json"],
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@c': path.resolve(__dirname, './src/component'),
-      '@style': path.resolve(__dirname, './src/styles'),
-      '@img': path.resolve(__dirname, './src/asset/img'),
+      "@": path.resolve(__dirname, "./src"),
+      "@c": path.resolve(__dirname, "./src/component"),
+      "@style": path.resolve(__dirname, "./src/styles"),
+      "@img": path.resolve(__dirname, "./src/asset/img"),
     },
   },
 };

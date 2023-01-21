@@ -7,5 +7,3 @@ tsc --init
 add -D babel-loader@latest @babel/core@latest @babel/preset-env@latest
 
 add -D prettier eslint-config-prettier eslint-plugin-prettier
-
-dlx @yarnpkg/sdks vscode

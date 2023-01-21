@@ -1,33 +1,16 @@
-const user = {
-  name: 'jihoon',
-  age: 40,
+console.log([1, 2, 3, 4].includes(5));
+
+const defineFn = (value: unknown): value is number | string => {
+  return ["string", "number"].includes(typeof value);
 };
 
-type userKey = keyof typeof user;
-Object.keys(user).forEach((v) => {
-  console.log(user[v as userKey]);
-});
-
-type date = {
-  time: Date;
-  now: number;
+const go = (value: number | string | null | undefined) => {
+  if (defineFn(value)) {
+    value.toString();
+  } else {
+    throw new Error("err");
+  }
 };
 
-const aa: date = {
-  time: new Date(),
-  now: new Date().getDate(),
-};
-
-console.log(aa.time + ':' + aa.now);
-
-type intersection = ({ name: string } & { age: number }) | { job: string };
-
-const bb: intersection = {
-  name: 'jihgoon',
-  age: 60,
-};
-
-const cc: intersection = {
-  name: 'lee',
-  job: 'developer',
-};
+console.log(typeof 3);
+console.log("fdfdfdf".length);
